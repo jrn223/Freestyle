@@ -18,13 +18,22 @@ daily_closing_prices = response.ix["Close"]
 
 print(daily_closing_prices)
 
-aapl_yesterday = daily_closing_prices.iloc[0]['AAPL']
-aapl_today = daily_closing_prices.iloc[1]['AAPL']
-print(aapl_today - aapl_yesterday)
+def differnceclosingprice (ticker_symbols):
 
-amzn_yesterday = daily_closing_prices.iloc[0]['AMZN']
-amzn_today = daily_closing_prices.iloc[1]['AMZN']
-print(amzn_today - amzn_yesterday)
+    yesterday_price = daily_closing_prices.iloc[0][ticker_symbols]
+    today_price = daily_closing_prices.iloc[1][ticker_symbols]
+    return today_price - yesterday_price
+
+for ticker in symbols:
+    print(differnceclosingprice(ticker))
+
+
+
+# aapl_yesterday = daily_closing_prices.iloc[0]['AAPL']
+# aapl_today = daily_closing_prices.iloc[1]['AAPL']
+# print(aapl_today - aapl_yesterday)
+
+
 
 
 
