@@ -1,16 +1,32 @@
+# for email functionality, credit @s2t2
 import os
 import sendgrid
 from sendgrid.helpers.mail import * # source of Email, Content, Mail, etc.
 
+# for day of week
+import datetime
+
+# to query Google stock data
 from pandas_datareader import data
 from datetime import date, timedelta
 
 #Stock data for Apple, Amazon, Activision Blizzard, Hologic Inc, Ligand Pharmaceuticals Inc, Microsoft, Ferrari, T. Rowe Price, Tesla, Vivint Solar Inc
-
 symbols = ['AAPL', 'AMZN', 'ATVI', 'HOLX', 'LGND', 'MSFT', 'RACE', 'TROW', 'TSLA', 'VSLR']
 data_source = 'google'
-start = str(date.today() - timedelta(days=2))
-end = str(date.today())
+
+day_of_week = datetime.datetime.today().weekday()
+# print(day_of_week) tested day of week functionality working
+
+monday = [0]
+other_weekdays = [1,2,3,4]
+
+if day_of_week in monday:
+    start = str(date.today() - timedelta(days=3))
+    end = str(date.today())
+
+elif day_of_week in other_weekdays:
+    start = str(date.today() - timedelta(days=1))
+    end = str(date.today())
 
 response = data.DataReader(symbols, data_source, start, end)
 
