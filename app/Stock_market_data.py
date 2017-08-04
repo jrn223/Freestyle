@@ -50,13 +50,13 @@ def stock_data_builder (ticker_symbol):
 for ticker in symbols:
     stock_data_builder(ticker)
 
-products_gain_loss_order = sorted(stock_data, key=lambda x: int(x["difference"]), reverse=True)
+products_gain_loss_order = sorted(stock_data, key=lambda x: x["difference"], reverse=True)
 
 # print(products_gain_loss_order) tested sort functionality working
 
 print("{:<35} {:<35} {:<35} {:<35}".format("Ticker","Today's Closing Price","Previous Day's Closing Price", "Gain / Loss"))
 for stock in products_gain_loss_order:
-    print("{:<35} {:<35} {:<35} {:<35}".format(stock["ticker"], stock["today_close"], stock["previous_day_close"], stock["difference"]))
+    print("{:<35} {:<35} {:<35} {:<35}".format(stock["ticker"], stock["today_close"], stock["previous_day_close"], '{0:.2f}'.format(stock["difference"])))
 
 # AUTHENTICATE
 
