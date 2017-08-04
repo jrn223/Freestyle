@@ -10,6 +10,8 @@ import datetime
 from pandas_datareader import data
 from datetime import date, timedelta
 
+stock_data = []
+
 #Stock data for Apple, Amazon, Activision Blizzard, Hologic Inc, Ligand Pharmaceuticals Inc, Microsoft, Ferrari, T. Rowe Price, Tesla, Vivint Solar Inc
 symbols = ['AAPL', 'AMZN', 'ATVI', 'HOLX', 'LGND', 'MSFT', 'RACE', 'TROW', 'TSLA', 'VSLR']
 data_source = 'google'
@@ -34,25 +36,18 @@ daily_closing_prices = response.ix["Close"]
 
 print(daily_closing_prices)
 
-def differnceclosingprice (ticker_symbols):
-
-    yesterday_price = daily_closing_prices.iloc[0][ticker_symbols]
-    today_price = daily_closing_prices.iloc[1][ticker_symbols]
-    return today_price - yesterday_price
+def stock_data_builder (ticker_symbol):
+    stock = {}
+    stock["ticker"] = ticker_symbol
+    stock["today_close"] = daily_closing_prices.iloc[1][ticker_symbol]
+    stock["previous_day_close"] = daily_closing_prices.iloc[0][ticker_symbol]
+    stock["difference"] = stock["today_close"] - stock["previous_day_close"]
+    stock_data.append(stock)
 
 for ticker in symbols:
-    print(differnceclosingprice(ticker))
+    stock_data_builder(ticker)
 
-
-
-# aapl_yesterday = daily_closing_prices.iloc[0]['AAPL']
-# aapl_today = daily_closing_prices.iloc[1]['AAPL']
-# print(aapl_today - aapl_yesterday)
-
-
-
-
-
+print(stock_data)
 
 # AUTHENTICATE
 
