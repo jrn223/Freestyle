@@ -37,7 +37,7 @@ response = data.DataReader(symbols, data_source, start, end)
 
 daily_closing_prices = response.ix["Close"]
 
-print(daily_closing_prices)
+# print(daily_closing_prices) test table
 
 def stock_data_builder (ticker_symbol):
     stock = {}
@@ -52,7 +52,11 @@ for ticker in symbols:
 
 products_gain_loss_order = sorted(stock_data, key=lambda x: int(x["difference"]), reverse=True)
 
-print(products_gain_loss_order)
+# print(products_gain_loss_order) tested sort functionality working
+
+print("{:<35} {:<35} {:<35} {:<35}".format("Ticker","Today's Closing Price","Previous Day's Closing Price", "Gain / Loss"))
+for stock in products_gain_loss_order:
+    print("{:<35} {:<35} {:<35} {:<35}".format(stock["ticker"], stock["today_close"], stock["previous_day_close"], stock["difference"]))
 
 # AUTHENTICATE
 
