@@ -55,30 +55,32 @@ products_gain_loss_order = sorted(stock_data, key=lambda x: x["difference"], rev
 # print(products_gain_loss_order) tested sort functionality working
 
 print("{:<35} {:<35} {:<35} {:<35}".format("Ticker","Today's Closing Price","Previous Day's Closing Price", "Gain / Loss"))
+email_chart = "{:<35} {:<35} {:<35} {:<35}".format("Ticker","Today's Closing Price","Previous Day's Closing Price", "Gain / Loss")
 for stock in products_gain_loss_order:
     print("{:<35} {:<35} {:<35} {:<35}".format(stock["ticker"], stock["today_close"], stock["previous_day_close"], '{0:.2f}'.format(stock["difference"])))
+    email_chart = email_chart + "{:<35} {:<35} {:<35} {:<35}".format(stock["ticker"], stock["today_close"], stock["previous_day_close"], '{0:.2f}'.format(stock["difference"])) + "/n"
 
-# AUTHENTICATE
+# AUTHENTICATE, credit @s2t2
 
-# SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY')
-#
-# sg = sendgrid.SendGridAPIClient(apikey = SENDGRID_API_KEY)
-#
-# # COMPILE REQUEST PARAMETERS
-#
-# subject = "Hello World from the SendGrid Python Library!"
-# my_email = Email("jrn223@stern.nyu.edu")
-# from_email = my_email
-# to_email = my_email
-# content = Content("text/plain", "Hello, Email!")
-# mail = Mail(from_email, subject, to_email, content)
-#
-# # ISSUE REQUEST
-#
-# response = sg.client.mail.send.post(request_body=mail.get())
-#
-# # PARSE RESPONSE
-#
-# print(response.status_code)
-# print(response.body)
-# print(response.headers)
+SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY')
+
+sg = sendgrid.SendGridAPIClient(apikey = SENDGRID_API_KEY)
+
+# COMPILE REQUEST PARAMETERS, credit @s2t2
+
+subject = "Stock Market Updates!"
+my_email = Email("jrn223@stern.nyu.edu")
+from_email = my_email
+to_email = my_email
+content = Content("text/plain", email_chart)
+mail = Mail(from_email, subject, to_email, content)
+
+# ISSUE REQUEST, credit @s2t2
+
+response = sg.client.mail.send.post(request_body=mail.get())
+
+# PARSE RESPONSE, credit @s2t2
+
+print(response.status_code)
+print(response.body)
+print(response.headers)
