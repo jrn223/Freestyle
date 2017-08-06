@@ -21,5 +21,5 @@ pip install -r requirements.txt
 ##### Usage
 python Stock_market_data.py
 
-######
+###### Deploying
 Run the application on a Heroku server created during the setup process. 
