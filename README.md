@@ -1,10 +1,10 @@
 # Freestyle project
 For jrn223 Freestyle project
 
-## Prerequisites
+# Prerequisites
 Follow the Setup Guide (https://github.com/s2t2/example-email-app-py/blob/master/SETUP.md) to obtain and configure credentials for using the SendGrid service to send email. And for configuring a machine to run this application.
 
-### Installation
+# Installation
 
 Install Python 3
 
