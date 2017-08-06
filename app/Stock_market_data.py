@@ -41,7 +41,7 @@ elif day_of_week in saturday:
 
 elif day_of_week in sunday:
     start = str(date.today() - timedelta(days=3))
-    end = str(date.today() - timedelta(days=2))  
+    end = str(date.today() - timedelta(days=2))
 
 response = data.DataReader(symbols, data_source, start, end)
 
@@ -64,8 +64,8 @@ products_gain_loss_order = sorted(stock_data, key=lambda x: x["difference"], rev
 
 # print(products_gain_loss_order) tested sort functionality working
 
-print("{:<35} {:<35} {:<35} {:<35}".format("Ticker","Today's Closing Price","Previous Day's Closing Price", "Gain / Loss"))
-email_chart = "{:<35} {:<35} {:<35} {:<35}".format("Ticker","Today's Closing Price","Previous Day's Closing Price", "Gain / Loss") + "\n"
+print("{:<35} {:<35} {:<35} {:<35}".format("Ticker","Most Recent Closing Price","Previous Day's Closing Price", "Gain / Loss"))
+email_chart = "{:<35} {:<35} {:<35} {:<35}".format("Ticker","Most Recent Closing Price","Previous Day's Closing Price", "Gain / Loss") + "\n"
 for stock in products_gain_loss_order:
     print("{:<35} {:<35} {:<35} {:<35}".format(stock["ticker"], stock["today_close"], stock["previous_day_close"], '{0:.2f}'.format(stock["difference"])))
     email_chart = email_chart + "{:<35} {:<35} {:<35} {:<35}".format(stock["ticker"], stock["today_close"], stock["previous_day_close"], '{0:.2f}'.format(stock["difference"])) + "\n"
