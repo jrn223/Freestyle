@@ -1,5 +1,5 @@
 # System Objectives
-For 10 specified stocks, the system will pull daily prices and the change from the previous day’s close. It will sort the list by the biggest gains to the biggest losses, and email the list to me every weekday day after the market closes.  
+For 10 specified stocks, the system will pull daily prices and the change from the previous day’s close. It will sort the list by the biggest gains to the biggest losses, and email the list to me every day day after the market closes.  
 
 ## Information Inputs
 Information inputs include:
