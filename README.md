@@ -11,5 +11,9 @@ Download the source code:
 git clone https://github.com/jrn223/Freestyle.git
 cd Freestlye/app/
 ```
-### Usage
+
+### Install package dependencies
+pip install -r requirements.txt
+
+#### Usage
 python Stock_market_data.py
