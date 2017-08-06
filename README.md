@@ -15,16 +15,16 @@ git clone https://github.com/jrn223/Freestyle.git
 cd Freestlye/app/
 ```
 
-#### Install package dependencies
+# Install package dependencies
 pip install -r requirements.txt
 
-##### Usage
+# Usage
 python Stock_market_data.py
 
-###### Deploying
+# Deploying
 Run the application on a Heroku server created during the setup process. 
 
-###### Notes
+# Notes
 
 The daily email is scheduled to be sent at 4:30 pm every day. You can also run the app in your command line, but it will only work after the market closes at 4 pm. It does however take into account the fact that the market is closed on the weekends.
 
