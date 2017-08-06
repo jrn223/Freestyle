@@ -14,3 +14,5 @@ A daily email showing the stocks’ current price and change from the previous d
 
 ### Notes
 The daily email is scheduled to be sent at 4:30 pm every day. You can also run the app in your command line, but it will only work after the market closes at 4 pm. It does however take into account the fact that the market is closed on the weekends. 
+
+For an example of the email that is sent, see the Stock market updates! file in the artifcats folder. 
